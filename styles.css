@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "ProximaVara";
+  src: url("proxima_vara.ttf") format("truetype");
+}
+
+body {
+  background: #ffffff;
+  font-family: "ProximaVara", sans-serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 16px; /* 123.077% */
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  max-width: 90%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+h5 {
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-weight: 400; /* Thin */
+  font-style: normal;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: -0.2em;
+  margin-bottom: 0;
+
+  font-family: "ProximaVara", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+}
+
+.slider-container {
+  display: flex;
+  gap: 1em;
+  margin-left: 1em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 1em;
+  /* Firefox scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #000 transparent;
+}
+
+.slider-container article {
+  scroll-snap-align: start;
+  background-color: #f7f7f7;
+  padding: 16px 16px 8px 16px;
+  flex: 0 0 20%;
+  min-width: 170px;
+}
+
+/* >374px */
+@media (min-width: 374px) {
+  .slider-container article {
+    flex: 0 0 43.5%;
+  }
+}
+
+/* >767px */
+@media (min-width: 767px) {
+  .slider-container article {
+    flex: 0 0 30.3%;
+  }
+}
+
+/* >1023px */
+@media (min-width: 1023px) {
+  .slider-container article {
+    flex: 0 0 23.2%;
+  }
+}
+
+.slider-container article img {
+  width: 100%;
+}
+
+/* Chrome, Edge, Safari */
+.slider-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.slider-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slider-container::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 0;
+}
