@@ -11,7 +11,8 @@ body {
   padding: 0;
 }
 
-h1 {
+a {
+  display: inline-block;
   font-size: 13px;
   font-style: italic;
   font-weight: 900;
@@ -30,18 +31,18 @@ h5 {
   margin-bottom: 20px;
 }
 
-h2 {
+.varianten {
+  display: inline-block;
   font-weight: 400; /* Thin */
   font-style: normal;
   font-size: 16px;
   margin-bottom: 20px;
 }
 
-h3 {
+.prijs {
+  display: inline-block;
   margin-top: -0.2em;
   margin-bottom: 0;
-
-  font-family: "ProximaVara", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -49,6 +50,10 @@ h3 {
 }
 
 .slider-container {
+  position: relative;
+}
+
+.slider-container ul {
   display: flex;
   gap: 1em;
   margin-left: 1em;
@@ -57,19 +62,21 @@ h3 {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding-bottom: 1em;
+  padding-left: 0;
+  list-style-type: none;
   /* Firefox scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: #000 transparent;
 }
 
-.slider-container article {
+.slider-container li {
   scroll-snap-align: start;
   background-color: #f7f7f7;
   padding: 16px 16px 8px 16px;
   min-width: 170px;
 }
 
-.slider-container article img {
+.slider-container li img {
   width: 100%;
 }
 
@@ -87,12 +94,9 @@ h3 {
   border-radius: 0;
 }
 
-.carousel-wrapper {
-  position: relative;
-}
-
 .prev,
 .next {
+  z-index: 1;
   color: black;
   background-color: white;
   border-radius: 0;
@@ -101,26 +105,25 @@ h3 {
   height: 48px;
   cursor: pointer;
   position: absolute;
-  top: 25%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
+.prev::before,
 .next::before {
   content: "";
   display: inline-block;
   width: 15px;
   height: 15px;
-  background-image: url("arrow-right.svg");
   background-size: cover;
 }
 
+.next::before {
+  background-image: url("arrow-right.svg");
+}
+
 .prev::before {
-  content: "";
-  display: inline-block;
-  width: 15px;
-  height: 15px;
   background-image: url("arrow-left.svg");
-  background-size: cover;
 }
 
 button:disabled {
@@ -142,40 +145,33 @@ button:disabled {
 }
 
 @media (min-width: 374px) {
-  .slider-container article {
+  .slider-container li {
     flex: 0 0 20%;
     min-width: 115px;
   }
 }
 
 @media (min-width: 390px) {
-  .slider-container article {
+  .slider-container li {
     flex: 0 0 30.3%;
     min-width: 120px;
   }
 }
 
-/* >615 */
-/* @media (min-width: 615px) {
-  .slider-container article {
-    flex: 0 0 28.3%;
-  }
-} */
-
 @media (min-width: 768px) {
-  .slider-container article {
+  .slider-container li {
     flex: 0 0 23.3%;
   }
 }
 
 @media (min-width: 1279px) {
-  .slider-container article {
+  .slider-container li {
     flex: 0 0 15.3%;
   }
 }
 
 @media (min-width: 1791px) {
-  .slider-container article {
+  .slider-container li {
     flex: 0 0 16.8%;
   }
 }
