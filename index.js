@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const slider = document.querySelector(".slider-container ul"); // now the actual scrollable element
+  const slider = document.querySelector(".slider-container ul");
   const listItems = slider.querySelectorAll("li");
   const leftButton = document.querySelector(".prev");
   const rightButton = document.querySelector(".next");
