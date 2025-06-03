@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   leftButton.disabled = true;
 
   function clickRight() {
-    const itemWidth = listItems[0].offsetWidth + 16; // + gap
+    const itemWidth = listItems[0].offsetWidth + 16;
     const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
 
     slider.scrollLeft += itemWidth;
