@@ -11,16 +11,12 @@ body {
   padding: 0;
 }
 
-a:first-of-type {
-  display: inline;
-}
-
 a {
   display: inline-block;
   font-size: 13px;
   font-style: italic;
   font-weight: 900;
-  line-height: 16px; /* 123.077% */
+  line-height: 16px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   max-width: 90%;
@@ -28,16 +24,9 @@ a {
   margin-bottom: 8px;
 }
 
-h5 {
-  font-weight: 700; /* Bold */
-  font-style: normal;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
 .varianten {
   display: block;
-  font-weight: 400; /* Thin */
+  font-weight: 400;
   font-style: normal;
   font-size: 16px;
   margin-bottom: 20px;
@@ -50,7 +39,7 @@ h5 {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 
 .slider-container {
@@ -71,6 +60,16 @@ h5 {
   /* Firefox scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: #000 transparent;
+}
+
+li a:focus {
+  outline: none;
+}
+
+li:has(a:focus) {
+  outline: 2px solid dodgerblue;
+  outline-offset: -3px;
+  border-radius: 8px;
 }
 
 .slider-container li {
@@ -106,6 +105,9 @@ h5 {
 
 .prev,
 .next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   color: black;
   background-color: white;
