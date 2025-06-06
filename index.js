@@ -25,6 +25,14 @@ function onCardClick(e) {
   }
 }
 
+function onScroll() {
+  const itemWidth = listItems[0].offsetWidth + gapValue;
+  const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+  rightButton.disabled = slider.scrollLeft + itemWidth * 0.1 >= maxScrollLeft;
+  leftButton.disabled = slider.scrollLeft <= 0;
+}
+
 function handleSliderNavigation(direction) {
   const itemWidth = listItems[0].offsetWidth + gapValue;
   const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
