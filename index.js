@@ -11,8 +11,9 @@ const extraScrollSpace = 0.1; // 10% item width extra space to scroll
 
 leftButton.disabled = true;
 slider.addEventListener("scroll", onScroll);
-rightButton.addEventListener("click", clickRight);
-leftButton.addEventListener("click", clickLeft);
+rightButton.addEventListener("click", () => handleSliderNavigation("right"));
+leftButton.addEventListener("click", () => handleSliderNavigation("left"));
+
 listItems.forEach((card) => {
   card.addEventListener("click", onCardClick);
 });
@@ -20,48 +21,26 @@ listItems.forEach((card) => {
 function onCardClick(e) {
   const link = e.currentTarget.querySelector("a");
   if (link) {
-    location = link.href;
+    location = link;
   }
 }
 
-function onScroll() {
+function handleSliderNavigation(direction) {
   const itemWidth = listItems[0].offsetWidth + gapValue;
   const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
 
-  rightButton.disabled =
-    slider.scrollLeft + itemWidth * extraScrollSpace >= maxScrollLeft;
-  leftButton.disabled = slider.scrollLeft <= 0;
-}
+  if (direction === "right") {
+    slider.scrollLeft += itemWidth;
 
-function clickRight() {
-  const itemWidth = listItems[0].offsetWidth + gapValue;
-  const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-
-  slider.scrollLeft += itemWidth;
-
-  if (slider.scrollLeft + itemWidth * extraScrollSpace > maxScrollLeft) {
-    rightButton.disabled = true;
+    if (slider.scrollLeft + itemWidth * extraScrollSpace > maxScrollLeft) {
+      rightButton.disabled = true;
+    }
+    leftButton.disabled = false;
   }
-}
 
-function clickLeft() {
-  const itemWidth = listItems[0].offsetWidth + gapValue;
-  slider.scrollLeft -= itemWidth;
-
-  rightButton.disabled = false;
-  leftButton.disabled = slider.scrollLeft <= 0;
-}
-
-function navigation() {
-  const itemWidth = listItems[0].offsetWidth + gapValue;
-  const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-
-  slider.scrollLeft += itemWidth;
-
-  if (slider.scrollLeft + itemWidth * extraScrollSpace > maxScrollLeft) {
-    rightButton.disabled = true;
-  } else {
+  if (direction === "left") {
     slider.scrollLeft -= itemWidth;
+
     rightButton.disabled = false;
     leftButton.disabled = slider.scrollLeft <= 0;
   }
